@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discovery-server
+  namespace: kd
+  labels:
+    app: discovery-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discovery-server
+  template:
+    metadata:
+      labels:
+        app: discovery-server
+    spec:
+      containers:
+      - name: discovery-server
+        image: kdmodder/discovery-server:1.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8761
+
+
