@@ -2,31 +2,31 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: customer-service
+  name: notification-service
   namespace: kd
   labels:
-    app: customer-service
+    app: notification-service
 
 spec:
   replicas: 2
 
   selector:
     matchLabels:
-      app: customer-service
+      app: notification-service
 
   template:
     metadata:
       labels:
-        app: customer-service
+        app: notification-service
 
     spec:
       containers:
-        - name: customer-service
-          image: kdmodder/customer-service:1.0.0
+        - name: notification-service
+          image: kdmodder/notification-service:1.0.0
           imagePullPolicy: Always
 
           ports:
-            - containerPort: 8082
+            - containerPort: 8089
 
           resources:
             requests:
@@ -39,7 +39,7 @@ spec:
 
           readinessProbe:
             tcpSocket:
-              port: 8082
+              port: 8089
             initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
@@ -47,7 +47,7 @@ spec:
 
           livenessProbe:
             tcpSocket:
-              port: 8082
+              port: 8089
             initialDelaySeconds: 90
             periodSeconds: 20
             timeoutSeconds: 5
