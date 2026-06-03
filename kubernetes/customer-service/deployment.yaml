@@ -8,7 +8,7 @@ metadata:
     app: customer-service
 
 spec:
-  replicas: 2
+  replicas: 1
 
   selector:
     matchLabels:
@@ -30,25 +30,11 @@ spec:
 
           resources:
             requests:
-              cpu: "100m"
-              memory: "256Mi"
+              cpu: "25m"
+              memory: "64Mi"
 
             limits:
               cpu: "250m"
-              memory: "512Mi"
+              memory: "256Mi"
 
-          readinessProbe:
-            tcpSocket:
-              port: 8082
-            initialDelaySeconds: 60
-            periodSeconds: 10
-            timeoutSeconds: 5
-            failureThreshold: 6
-
-          livenessProbe:
-            tcpSocket:
-              port: 8082
-            initialDelaySeconds: 90
-            periodSeconds: 20
-            timeoutSeconds: 5
-            failureThreshold: 3
+         
