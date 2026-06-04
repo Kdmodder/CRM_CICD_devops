@@ -4,6 +4,8 @@ kind: Deployment
 metadata:
   name: integration-service
   namespace: kd
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
   labels:
     app: integration-service
 

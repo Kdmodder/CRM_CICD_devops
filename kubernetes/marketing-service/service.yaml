@@ -4,6 +4,8 @@ kind: Service
 metadata:
   name: marketing-service
   namespace: kd
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 
 spec:
   selector:

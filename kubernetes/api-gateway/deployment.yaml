@@ -4,6 +4,8 @@ kind: Deployment
 metadata:
   name: api-gateway
   namespace: kd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
   labels:
     app: api-gateway
 

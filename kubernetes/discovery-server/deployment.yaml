@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: discovery-server
   namespace: kd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
   labels:
     app: discovery-server
 spec:
