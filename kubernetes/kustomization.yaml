@@ -1,0 +1,61 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # Namespace
+  - namespaces/kd.yaml
+
+  # MySQL
+  - mysql/pvc.yaml
+  - mysql/service.yaml
+  - mysql/statefulset.yaml
+
+  # Discovery Server
+  - discovery-server/service.yaml
+  - discovery-server/deployment.yaml
+
+  # Auth Service
+  - auth-service/service.yaml
+  - auth-service/deployment.yaml
+
+  # API Gateway
+  - api-gateway/service.yaml
+  - api-gateway/deployment.yaml
+
+  # Customer Service
+  - customer-service/service.yaml
+  - customer-service/deployment.yaml
+
+  # Sales Service
+  - sales-service/service.yaml
+  - sales-service/deployment.yaml
+
+  # Marketing Service
+  - marketing-service/service.yaml
+  - marketing-service/deployment.yaml
+
+  # Support Service
+  - support-service/service.yaml
+  - support-service/deployment.yaml
+
+  # Analytics Service
+  - analytics-service/service.yaml
+  - analytics-service/deployment.yaml
+
+  # Workflow Service
+  - workflow-service/service.yaml
+  - workflow-service/deployment.yaml
+
+  # Integration Service
+  - integration-service/service.yaml
+  - integration-service/deployment.yaml
+
+  # Notification Service
+  - notification-service/service.yaml
+  - notification-service/deployment.yaml
+
+  
+
+  # Frontend
+  - frontend/service.yaml
+  - frontend/deployment.yaml
