@@ -469,7 +469,7 @@ export const deleteReport = async (id) => {
 // ============ Integrations (integration-service) ============
 
 const INTEGRATION_API = axios.create({
-    baseURL: 'http://localhost:8088/api',
+    baseURL: '/api/integration',
     headers: { 'Content-Type': 'application/json' },
 });
 
@@ -493,7 +493,7 @@ export const sendWebhook = async (data) => {
 // ============ Workflows (workflow-service) ============
 
 const WORKFLOW_API = axios.create({
-    baseURL: 'http://localhost:8087/api',
+    baseURL: '/api/workflow',
     headers: { 'Content-Type': 'application/json' },
 });
 

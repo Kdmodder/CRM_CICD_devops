@@ -8,7 +8,7 @@ metadata:
     app: marketing-service
 
 spec:
-  replicas: 2
+  replicas: 1
 
   selector:
     matchLabels:
@@ -35,6 +35,6 @@ spec:
 
             limits:
               cpu: "250m"
-              memory: "256Mi"
+              memory: "512Mi"
 
          

@@ -2,39 +2,35 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: support-service
+  name: frontend
   namespace: kd
-  labels:
-    app: support-service
 
 spec:
   replicas: 1
 
   selector:
     matchLabels:
-      app: support-service
+      app: frontend
 
   template:
     metadata:
       labels:
-        app: support-service
+        app: frontend
 
     spec:
       containers:
-        - name: support-service
-          image: kdmodder/support-service:1.0.0
+        - name: frontend
+          image: kdmodder/frontend:1.0.1
           imagePullPolicy: Always
 
           ports:
-            - containerPort: 8085
+            - containerPort: 3000
 
           resources:
             requests:
-              cpu: "25m"
-              memory: "64Mi"
+              cpu: "50m"
+              memory: "128Mi"
 
             limits:
-              cpu: "250m"
+              cpu: "500m"
               memory: "512Mi"
-
-         
