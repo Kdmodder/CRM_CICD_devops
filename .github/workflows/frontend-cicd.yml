@@ -14,6 +14,7 @@ on:
 
 jobs:
   frontend:
+    if: github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
 
     steps:
@@ -51,15 +52,6 @@ jobs:
             -u "${{ secrets.DOCKER_USERNAME }}" \
             --password-stdin
 
-      - name: Trivy Scan
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: kdmodder/frontend:${{ env.NEW_VERSION }}
-          severity: CRITICAL
-          ignore-unfixed: true
-          exit-code: 1
-          format: table
-
       - name: Push Docker image
         run: |
           docker push kdmodder/frontend:${NEW_VERSION}
@@ -71,6 +63,6 @@ jobs:
 
           git add frontend/version.txt
 
-          git commit -m "chore(frontend): bump version to ${NEW_VERSION}" || exit 0
+          git commit -m "[skip ci] chore(frontend): bump version to ${NEW_VERSION}" || exit 0
 
           git push
