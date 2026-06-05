@@ -20,7 +20,7 @@ metadata:
       support-service=kdmodder/support-service,
       workflow-service=kdmodder/workflow-service
 
-    argocd-image-updater.argoproj.io/write-back-method: argocd
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/argocd-image-updater-git-creds
 
     argocd-image-updater.argoproj.io/frontend.update-strategy: semver
     argocd-image-updater.argoproj.io/analytics-service.update-strategy: semver
