@@ -1,4 +1,4 @@
-name: frontend CI/CD
+name: analytics-service CI/CD
 
 permissions:
   contents: write
@@ -8,12 +8,12 @@ on:
     branches:
       - main
     paths:
-      - 'frontend/**'
+      - 'analytics-service/**'
 
   workflow_dispatch:
 
 jobs:
-  frontend:
+  analytics-service:
     if: github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
 
@@ -23,7 +23,7 @@ jobs:
 
       - name: Read current version
         run: |
-          VERSION=$(cat frontend/version.txt)
+          VERSION=$(cat analytics-service/version.txt)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Bump patch version
@@ -32,7 +32,7 @@ jobs:
           PATCH=$((PATCH + 1))
           NEW_VERSION="$MAJOR.$MINOR.$PATCH"
 
-          echo "$NEW_VERSION" > frontend/version.txt
+          echo "$NEW_VERSION" > analytics-service/version.txt
 
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
 
@@ -41,7 +41,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build             -f frontend/Dockerfile             -t kdmodder/frontend:${NEW_VERSION}             .
+          docker build             -f analytics-service/Dockerfile             -t kdmodder/analytics-service:${NEW_VERSION}             .
 
       - name: Login to Docker Hub
         run: |
@@ -49,15 +49,15 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push kdmodder/frontend:${NEW_VERSION}
+          docker push kdmodder/analytics-service:${NEW_VERSION}
 
       - name: Commit updated version
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-          git add frontend/version.txt
+          git add analytics-service/version.txt
 
-          git commit -m "[skip ci] chore(frontend): bump version to ${NEW_VERSION}" || exit 0
+          git commit -m "[skip ci] chore(analytics-service): bump version to ${NEW_VERSION}" || exit 0
 
           git push
