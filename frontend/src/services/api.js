@@ -8,27 +8,27 @@ const AUTH_API = axios.create({
 });
 
 const CUSTOMER_API = axios.create({
-    baseURL: '/api/customer',
+    baseURL: '/api',
     headers: { 'Content-Type': 'application/json' },
 });
 
 const SALES_API = axios.create({
-    baseURL: '/api/sales',
+    baseURL: '/api',
     headers: { 'Content-Type': 'application/json' },
 });
 
 const MARKETING_API = axios.create({
-    baseURL: '/api/marketing',
+    baseURL: '/api',
     headers: { 'Content-Type': 'application/json' },
 });
 
 const SUPPORT_API = axios.create({
-    baseURL: '/api/support',
+    baseURL: '/api',
     headers: { 'Content-Type': 'application/json' },
 });
 
 const ANALYTICS_API = axios.create({
-    baseURL: '/api/analytics',
+    baseURL: '/api',
     headers: { 'Content-Type': 'application/json' },
 });
 
@@ -469,7 +469,7 @@ export const deleteReport = async (id) => {
 // ============ Integrations (integration-service) ============
 
 const INTEGRATION_API = axios.create({
-    baseURL: '/api/integration',
+    baseURL: '/api',
     headers: { 'Content-Type': 'application/json' },
 });
 
@@ -493,7 +493,7 @@ export const sendWebhook = async (data) => {
 // ============ Workflows (workflow-service) ============
 
 const WORKFLOW_API = axios.create({
-    baseURL: '/api/workflow',
+    baseURL: '/api',
     headers: { 'Content-Type': 'application/json' },
 });
 
