@@ -1,6 +1,6 @@
 kustomize:
   images:
-  - kdmodder/frontend:1.0.2
+  - kdmodder/frontend:1.0.3
   - kdmodder/analytics-service:1.0.0
   - kdmodder/api-gateway:1.0.0
   - kdmodder/auth-service:1.0.0
