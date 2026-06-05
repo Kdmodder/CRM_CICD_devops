@@ -61,3 +61,5 @@ yarn-error.log*
 *~
 .gemini/
 .factorypath
+kubernetes/argo-cd/secret-image-updater-git.yaml
+kubernetes/argo-cd/secret-image-updater-git.yaml
