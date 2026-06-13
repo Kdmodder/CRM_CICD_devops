@@ -15,12 +15,13 @@ spec:
   template:
     metadata:
       labels:
+        version: v1
         app: frontend
 
     spec:
       containers:
         - name: frontend
-          image: kdmodder/frontend:1.0.1
+          image: kdmodder/frontend:1.0.4
           imagePullPolicy: Always
 
           ports:
@@ -28,7 +29,7 @@ spec:
 
           resources:
             requests:
-              cpu: "50m"
+              cpu: "100m"
               memory: "128Mi"
 
             limits:

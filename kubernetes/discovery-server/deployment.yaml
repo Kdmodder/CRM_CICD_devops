@@ -6,6 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
   labels:
+    version: v1
     app: discovery-server
 spec:
   replicas: 1
@@ -15,6 +16,7 @@ spec:
   template:
     metadata:
       labels:
+        version: v1
         app: discovery-server
     spec:
       containers:
