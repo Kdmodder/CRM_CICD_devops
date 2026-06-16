@@ -12,7 +12,7 @@ spec:
 
   ports:
   - name: http
-  - port: 8761
+    port: 8761
     targetPort: 8761
 
   type: ClusterIP
