@@ -11,6 +11,7 @@ spec:
     app: discovery-server
 
   ports:
+  - name: http
   - port: 8761
     targetPort: 8761
 
