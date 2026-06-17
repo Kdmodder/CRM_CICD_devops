@@ -1,29 +1,25 @@
 # =========================
-# Stage 1 - Install Dependencies
+# Stage 1 - Build React App
 # =========================
 FROM node:20 AS builder
 
 WORKDIR /app
 
-# Copy frontend package files
 COPY frontend/package*.json ./
 
 RUN npm install
 
-# Copy frontend source
 COPY frontend .
 
+RUN npm run build
+
 # =========================
-# Stage 2 - Runtime
+# Stage 2 - Nginx Runtime
 # =========================
-FROM node:20
+FROM nginx:alpine
 
-WORKDIR /app
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-COPY --from=builder /app/node_modules ./node_modules
+EXPOSE 80
 
-COPY --from=builder /app .
-
-EXPOSE 3000
-
-CMD ["npm", "run", "dev", "--", "--host","0.0.0.0"]
+CMD ["nginx", "-g", "daemon off;"]
