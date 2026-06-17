@@ -5,6 +5,9 @@ metadata:
   name: crm-app
   namespace: argocd
   annotations:
+
+    notifications.argoproj.io/subscribe.on-deployed.email: sureshkundan913@gmail.com
+    notifications.argoproj.io/subscribe.on-health-degraded.email: sureshkundan913@gmail.com
     argocd-image-updater.argoproj.io/image-list: |
       frontend=kdmodder/frontend,
       analytics-service=kdmodder/analytics-service,
