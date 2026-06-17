@@ -75,5 +75,3 @@ resources:
   - frontend/hpa.yaml
 
   # Istio
-  - istio/gateway/gateway-api.yaml
-  - istio/gateway/httproute.yaml
