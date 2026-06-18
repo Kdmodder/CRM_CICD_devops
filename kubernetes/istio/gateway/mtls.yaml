@@ -5,4 +5,4 @@ metadata:
   namespace: kd
 spec:
   mtls:
-    mode: STRICT
+    mode: PERMISSIVE

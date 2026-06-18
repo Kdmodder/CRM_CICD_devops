@@ -11,6 +11,14 @@ spec:
   - matches:
     - path:
         type: PathPrefix
+        value: /api
+    backendRefs:
+    - name: api-gateway
+      port: 8080
+
+  - matches:
+    - path:
+        type: PathPrefix
         value: /
 
     backendRefs:
